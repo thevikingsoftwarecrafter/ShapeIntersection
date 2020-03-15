@@ -2,6 +2,6 @@
 {
     public interface IShape
     {
-
+        ShapeIntersection IntersectWith(IShape shape);
     }
 }
