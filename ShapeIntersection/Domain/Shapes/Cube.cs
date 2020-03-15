@@ -2,17 +2,11 @@
 
 namespace ShapeIntersection.Domain.Shapes
 {
-    public class Cube : IShape
+    public class Cube : BaseShape<CubeDimensions>, IShape
     {
-        public X X { get; }
-        public Y Y { get; }
-        public Side Side { get; }
-
-        public Cube(CubeDimensions cubeDimensions)
+        public Cube(CubeDimensions cubeDimensions) : base(cubeDimensions)
         {
-            X = cubeDimensions.X;
-            Y = cubeDimensions.Y;
-            Side = cubeDimensions.Side;
+
         }
     }
 }

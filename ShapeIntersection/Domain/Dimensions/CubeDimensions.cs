@@ -1,6 +1,6 @@
 ﻿namespace ShapeIntersection.Domain.Dimensions
 {
-    public class CubeDimensions : IDimensions
+    public struct CubeDimensions : IDimensions
     {
         public X X { get; }
         public Y Y { get; }
