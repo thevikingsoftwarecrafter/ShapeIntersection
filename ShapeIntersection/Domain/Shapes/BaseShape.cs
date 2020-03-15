@@ -4,7 +4,7 @@ namespace ShapeIntersection.Domain.Shapes
 {
     public abstract class BaseShape<T> where T : IDimensions
     {
-        public T Dimensions { get; }
+        protected T Dimensions { get; }
 
         protected BaseShape(T dimensions)
         {
