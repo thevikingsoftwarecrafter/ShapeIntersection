@@ -6,7 +6,7 @@ using ShapeIntersection.Domain.Shapes.Primitives;
 
 namespace ShapeIntersection.Application
 {
-    class Program
+    public class Program
     {
         private static IIntersectionService _intersectionService;
 
