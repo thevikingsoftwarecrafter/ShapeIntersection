@@ -27,5 +27,22 @@ namespace ShapeIntersection.Test.Domain.Factories
             ((Cube) cube).Y.Value.Should().Be(y);
             ((Cube) cube).Side.Value.Should().Be(side);
         }
+
+        [Theory, AutoData]
+        public void Create_A_New_Sphere_When_Parameters_Are_Sphere_Dimensions(float x, float y, float radius)
+        {
+            //Arrange
+            var sphereDimensions = new SphereDimensions(new X(x), new Y(y), new Radius(radius));
+            var intersectionService = Substitute.For<IIntersectionService>();
+
+            //Act
+            var sphere = ShapeFactory.Create(intersectionService, sphereDimensions);
+
+            //Assert
+            sphere.Should().BeOfType(typeof(Sphere));
+            ((Sphere)sphere).X.Value.Should().Be(x);
+            ((Sphere)sphere).Y.Value.Should().Be(y);
+            ((Sphere)sphere).Radius.Value.Should().Be(radius);
+        }
     }
 }

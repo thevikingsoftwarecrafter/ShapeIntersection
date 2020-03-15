@@ -15,6 +15,7 @@ namespace ShapeIntersection.Application
             DependencyInyection();
             var cube1 = ShapeFactory.Create(_intersectionService, new CubeDimensions(new X(0), new Y(0), new Side(10)));
             var cube2 = ShapeFactory.Create(_intersectionService, new CubeDimensions(new X(5), new Y(5), new Side(7)));
+            var sphere = ShapeFactory.Create(_intersectionService, new SphereDimensions(new X(3), new Y(3), new Radius(4.5f)));
 
             Console.WriteLine("Shape Intersection");
             Console.WriteLine($"-----------------");
@@ -23,6 +24,12 @@ namespace ShapeIntersection.Application
             Console.WriteLine();
             Console.WriteLine($"Intersection result: \n");
             Console.WriteLine($"\t{cube1.IntersectWith(cube2)}");
+            Console.WriteLine();
+            Console.WriteLine($"Shape 1: {cube1}");
+            Console.WriteLine($"Shape 2: {sphere}");
+            Console.WriteLine();
+            Console.WriteLine($"Intersection result: \n");
+            Console.WriteLine($"\t{cube1.IntersectWith(sphere)}");
             Console.ReadKey();
         }
 

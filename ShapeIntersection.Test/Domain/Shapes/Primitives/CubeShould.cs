@@ -26,5 +26,23 @@ namespace ShapeIntersection.Test.Domain.Shapes.Primitives
             //Assert
             shapeIntersection.ToString().Should().Be($"Intersection result of a Cube (X = {x1}, Y = {y1}, Side = {side1}) with a Cube (X = {x2}, Y = {y2}, Side = {side2})");
         }
+
+        [Theory, AutoData]
+        public void Intersect_With_Another_Sphere(float cubeX, float cubeY, float cubeSide, float sphereX, float sphereY, float sphereRadius)
+        {
+            //Arrange
+            var cubeDimensions = new CubeDimensions(new X(cubeX), new Y(cubeY), new Side(cubeSide));
+            var sphereDimensions = new SphereDimensions(new X(sphereX), new Y(sphereY), new Radius(sphereRadius));
+            var intersectionService = new IntersectionService();
+
+            var cube = ShapeFactory.Create(intersectionService, cubeDimensions);
+            var sphere = ShapeFactory.Create(intersectionService, sphereDimensions);
+
+            //Act
+            var shapeIntersection = cube.IntersectWith(sphere);
+
+            //Assert
+            shapeIntersection.ToString().Should().Be($"Intersection result of a Cube (X = {cubeX}, Y = {cubeY}, Side = {cubeSide}) with a Sphere (X = {sphereX}, Y = {sphereY}, Radius = {sphereRadius})");
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace ShapeIntersection.Domain.Factories
             return dimensions switch
             {
                 CubeDimensions cubeDimensions => new Cube(intersectionService, cubeDimensions),
+                SphereDimensions sphereDimensions => new Sphere(intersectionService, sphereDimensions),
                 _ => null
             };
         }
